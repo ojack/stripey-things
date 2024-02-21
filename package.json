@@ -1,0 +1,15 @@
+{
+  "name": "pocket-portals-template",
+  "version": "1.0.0",
+  "description": "template for making pwa",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server --verbose ."  
+  },
+  "author": "ojack",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
