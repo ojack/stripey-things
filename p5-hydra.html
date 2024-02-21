@@ -30,14 +30,8 @@
 </head>
 
 <body>
-    <script type="module">
-        const h = new Hydra()
-
-        osc(4).rotate(0, 0.1).out()
-
-
-    </script>
-    <script>
+    <script>    
+        // p5 sketch goes here
         function setup() {
             createCanvas(window.innerWidth, window.innerHeight)
         }
@@ -46,6 +40,11 @@
             clear();
             ellipse(mouseX, mouseY, 40, 40)
         }
+
+         // hydra sketch 
+         const h = new Hydra()
+
+        osc(4).rotate(0, 0.1).out()
     </script>
 </body>
 
