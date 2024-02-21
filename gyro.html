@@ -29,7 +29,7 @@
             height: 100%;
         }
 
-        #accelerometer-button {
+        #gyro-button {
             position: absolute;
             top: 40px;
             left: 10px;
@@ -54,11 +54,13 @@
             .hue(() => gyro.alpha)
             .out()
         
+        //gyro.show()
+        gyro.requestPermissions(document.getElementById('gyro-button'))
         gyro.show()
 
     </script>
     <canvas id="hydra-canvas"></canvas>
-    <button id="accelerometer-button" onclick="gyro.requestPermissions(event)">click me to turn on accelerometer</button>
+    <button id="gyro-button">click me to turn on accelerometer</button>
 </body>
 
 </html>
