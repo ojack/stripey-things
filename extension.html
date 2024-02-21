@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false" />
+    <title>OLIVIA s beautiful page</title>
+    <script src="./lib/hydra-synth.js"></script>
+    <!-- <script src="./lib/hydra-text.js"></script> -->
+    <!-- <script src="https://hyper-hydra.glitch.me/hydra-text.js"></script> -->
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+const h = new Hydra()
+
+window.hydra = h
+
+async function runCode() {
+    // window._hydra.sandbox = { makeGlobal: true }
+await loadScript("./lib/hydra-text.js")
+
+hydraText.font = "serif"
+hydraText.lineWidth = "2%"
+str = " hydra_! "
+solid(1,.2)
+	.blend(src(o0).scale(1.02).colorama(.02))
+	.layer(text(str))
+	.diff(strokeText(str).modulateScale(noise(1,1), .4))
+	.out()
+}
+
+runCode()
+    </script>
+</body>
+
+</html>

@@ -25,28 +25,7 @@
     <script type="module">
         const h = new Hydra()
 
-        s0.initCam()
-
-src(s0).out(o0)
-
-osc(5, 0.9, 0.001)
-    .kaleid([3,4,5,7,8,9,10].fast(0.4))
-    .color(()=>mouse.x/width, ()=>a.fft[0])
-    .colorama(0.2)
-    .rotate(0.009,()=>Math.sin(time)* -0.0001)
-    .modulateRotate(o0,()=>Math.sin(time) * 0.003)
-    .modulate(o0, 0.9)
-    .scale(0.5)
-    .out(o1)
-
-
-src(o0).diff(o1).out(o3)
-src(o0).modulate(o1).out(o2)
-
-a.show()
-a.setSmooth(0.1)
-
-render()
+        osc(20).rotate(0, 0.4).out()
     </script>
 </body>
 
