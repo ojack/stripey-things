@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false" />
+    <title>OLIVIA s beautiful page</title>
+    <script src="./lib/hydra-synth.js"></script>
+    <script src="./lib/p5.js"></script>
+    <styLe>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #p5-canvas {
+            z-index: 100;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </styLe>
+</head>
+
+<body>
+    <canvas id="p5-canvas"></canvas>
+    <script>    
+        // p5 sketch goes here
+        const p5Canvas = document.getElementById('p5-canvas')
+       
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight, p5Canvas)
+        }
+
+        function draw() {
+             clear();
+            ellipse(mouseX, mouseY, 40, 40)
+        }
+
+         // hydra sketch 
+         const h = new Hydra()
+        
+         s0.init({ src: p5Canvas })
+
+        osc(4).rotate(0, 0.1).diff(src(s0).repeat()).out()
+    </script>
+</body>
+
+</html>
