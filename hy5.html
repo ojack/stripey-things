@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false" />
+    <title>HY5 example</title>
+    <script src="./lib/hydra-synth.js"></script>
+    <script src="./lib/p5.min.js"></script>
+    <styLe>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .p5Canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </styLe>
+</head>
+
+<body>
+    <!-- HY5 needs to be applied in body tag -->
+    <script src="./lib/hy5.js"></script>
+
+    <script>    
+        // p5 sketch goes here
+        function setup() {
+            createCanvas(windowWidth, windowHeight)
+        }
+
+        function draw() {
+            // clear();
+            ellipse(mouseX, mouseY, 150)
+        }
+
+        P5.init()
+        P5.hide()
+
+        H.pixelDensity(2) // 2x res for retina sharpness
+
+        //  const h = new Hydra() // *** disabled, HY5 creates Hydra instance
+
+        src(s0).modulate(noize()).out()
+    </script>
+</body>
+
+</html>
