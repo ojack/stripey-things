@@ -49,7 +49,10 @@
             video.setAttribute('muted', '')
             video.setAttribute('playsinline', '')
             video.srcObject = stream
-            s0.init({ src: video })
+            video.addEventListener('loadedmetadata', () => {
+                video.play()
+                s0.init({ src: video })
+            })
         })
 
         src(s0).out()
