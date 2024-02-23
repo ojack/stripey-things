@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OLIVIA s beautiful page</title>
+    <script src="./lib/hydra-synth.js"></script>
+    <styLe>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* background: black; */
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #hydra-canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    </styLe>
+</head>
+
+<body>
+    <canvas id="hydra-canvas"></canvas>
+
+    <script type="module">
+
+        const hydraCanvas = document.getElementById('hydra-canvas')
+        hydraCanvas.width = window.innerWidth
+        hydraCanvas.height = window.innerHeight
+        const h = new Hydra({ canvas: hydraCanvas })
+
+        window.navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: { facingMode: "environment" }
+        }).then((stream) => {
+            const video = document.createElement('video')
+            video.setAttribute('autoplay', '')
+            video.setAttribute('muted', '')
+            video.setAttribute('playsinline', '')
+            video.srcObject = stream
+            s0.init({ src: video })
+        })
+
+        src(s0).out()
+
+    </script>
+</body>
+
+</html>
