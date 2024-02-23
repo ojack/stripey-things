@@ -36,32 +36,61 @@
             background: none;
             cursor: pointer;
             background-size: cover;
-            background-position: center;
-            background-image: url("cover.png");
+            /* background-position: center; */
+            /* background-image: url("cover.png"); */
         }
     </styLe>
 </head>
 
 <body>
     <script type="module">
-        // import gyro from './lib/gyro.js'
-        // window.gyro = gyro 
-
+    
         const hydraCanvas = document.getElementById('hydra-canvas')
         hydraCanvas.width = window.innerWidth
         hydraCanvas.height = window.innerHeight
         const h = new Hydra({ canvas: hydraCanvas })
 
-        shape(3, 0.1)
-            .scrollY(() => gyro.beta)
-            .scrollX(() => gyro.gamma)
-            .color(1, -1, 1)
-            .hue(() => gyro.alpha)
-            .out()
-
-        //gyro.show()
         gyro.requestPermissions(document.getElementById('gyro-button'))
-        gyro.show()
+
+        const sketch1 = () => {
+            osc(20, 0.1, 0.5)
+                .modulate(noise(4, 0.4))
+                .out()
+        }
+
+
+        const sketch2 = () => {
+            osc(20, 0.1, 0.5)
+                .modulate(noise(2, 0.4)
+                    .scrollY(() => gyro.beta/3)
+                    .scrollX(() => gyro.gamma/3)
+                )
+                .hue(() => gyro.alpha)
+                .out()
+        }
+
+      
+
+        const sketch3 = () => {
+           src(o0)
+                .modulate(noise(2), 0.004)
+                .out()
+        }
+
+        
+
+        // array of available sketches
+        const mySketches = [sketch1, sketch2, sketch3]
+        let currentSketch = 0
+
+        mySketches[0]()
+
+        // listen to events
+        window.addEventListener('pointerdown', () => {
+            currentSketch++
+            if(currentSketch >= mySketches.length) currentSketch = 0
+            mySketches[currentSketch]()
+        })
 
     </script>
     <canvas id="hydra-canvas"></canvas>
